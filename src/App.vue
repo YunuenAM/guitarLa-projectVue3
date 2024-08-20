@@ -1,14 +1,16 @@
 <script setup> //setup allows composition API
 
-import {ref,reactive} from 'vue'
+import {ref,reactive, onMounted} from 'vue'
 import {db} from './data/guitarras'
 
-const state = reactive({
-    guitarras: db
+
+
+const guitarras = ref(db)
+
+onMounted(()=>{
+    console.log('Componente Listo')
+    guitarras.value = db;
 })
-
-console.log(state.guitarras)
-
 </script>
 
 
